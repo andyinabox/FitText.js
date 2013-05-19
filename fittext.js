@@ -20,7 +20,7 @@
 			el.attachEvent('on'+type, fn);
   };
 
-  window.fitText = function (el, kompressor) {
+  var fitText = function (el, kompressor) {
 
     var settings = {
       'minFontSize' : -1/0,
@@ -52,4 +52,10 @@
     // return set of elements
     return el;
   };
+  
+  if(typeof define === 'function' && define.amd) {
+  	define('fitText', [], function(){ return fitText; });
+  } else {
+  	window.fitText = fitText;
+  }
 })();
